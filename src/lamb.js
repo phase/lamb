@@ -1,8 +1,4 @@
 //document.querySelectorAll('script[type="text/lamb"]').textContent
-$('input#LambRun').click(function() {
-    var text = $('textarea#LambCode').val();
-    $('textarea#LambResult').append(interpret(text) + "<br>");
-});
 
 function interpret(input){
     if(/[a-zA-Z][0-9a-zA-Z]*(\s)?:(\s)?(")?[0-9a-zA-Z]*(")?/.test(input)){
