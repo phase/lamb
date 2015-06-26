@@ -22,19 +22,21 @@ public class Lamb {
             BufferedReader br = new BufferedReader(new FileReader(file));
             try {
                 for(String line; (line = br.readLine()) != null;) {
-                    processCommand(line);
+                    System.out.println(processCommand(line));
                 }
             } finally {
                 br.close();
             }
         } else {
             Console console = System.console();
-            String input = console.readLine(">> ");
-            processCommand(input);
+            while(true) {
+                String input = console.readLine(">> ");
+                System.out.println(processCommand(input));
+            }
         }
     }
 
-    public void processCommand(String input) {
+    public String processCommand(String input) {
         if(input.contains(";") {
             for(String s : input.split(";")) {
                 processCommand(s);
@@ -46,6 +48,6 @@ public class Lamb {
             String value = input.split(":")[1];
             intput = "var " + name + "=" + value;
         }
-        System.out.println(engine.eval(input));
+        return engine.eval(input);
     }
 }
