@@ -46,7 +46,18 @@ public class Lamb {
         if(input.matches("[a-zA-Z][0-9a-zA-Z]*(\\s)?:(\\s)?(\")?[0-9a-zA-Z]*(\")?")) {
             String name = input.split(":")[0].replace("\\s+", "");
             String value = input.split(":")[1];
-            intput = "var " + name + "=" + value;
+            intput = "var " + name + " = " + value;
+        }
+        else if(input.matches("[a-zA-Z][0-9a-zA-Z]*:(λ[a-zA-Z](.)?)+(?s).*")) {
+            String name = input.split(":")[0];
+            String code = input.split(":")[1].split(".")[input.split(":")[1].split(".").length-1];
+            String vars = input.replace("." + this.code, "").replace("λ", "");
+            String[] variables = vars.split(".");
+            StringBuilder v = new StringBuilder();
+            for (int i = 1; i < args.length; i++)
+                v.append(variables[i] + ",");
+            v.setLength(v.length() - 1);
+            input = "var " + name + " = function(" + v.toString() + "){" + code + "};";
         }
         return engine.eval(input);
     }
