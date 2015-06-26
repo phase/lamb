@@ -35,6 +35,17 @@ public class Lamb {
     }
 
     public void processCommand(String input) {
+        if(input.contains(";") {
+            for(String s : input.split(";")) {
+                processCommand(s);
+            }
+            return;
+        }
+        if(input.matches("[a-zA-Z][0-9a-zA-Z]*(\\s)?:(\\s)?(\")?[0-9a-zA-Z]*(\")?")) {
+            String name = input.split(":")[0].replace("\\s+", "");
+            String value = input.split(":")[1];
+            intput = "var " + name + "=" + value;
+        }
         System.out.println(engine.eval(input));
     }
 }
