@@ -4,7 +4,13 @@
     <script>
     $('input#LambRun').click(function() {
         var text = $('textarea#LambCode').val();
-        $('textarea#LambResult').append(interpret(text) + "<br>");
+        if(text.contains(";") {
+            for(var s in text.split(";")){
+                $('textarea#LambResult').append(interpret(text) + "<br>");
+            }
+        } else {
+            $('textarea#LambResult').append(interpret(text) + "<br>");
+        }
     });
     </script>
 </head>
