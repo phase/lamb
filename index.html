@@ -4,7 +4,7 @@
     <script>
     $('input#LambRun').click(function() {
         var text = $('textarea#LambCode').val();
-        if(text.contains(";") {
+        if(text.contains(";")) {
             for(var s in text.split(";")){
                 $('textarea#LambResult').append(interpret(text) + "<br>");
             }
