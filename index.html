@@ -1,0 +1,15 @@
+<head>
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://cdn.rawgit.com/phase/lamb/master/src/lamb.js"></script>
+    <script>
+    $('input#LambRun').click(function() {
+        var text = $('textarea#LambCode').val();
+        $('textarea#LambResult').append(interpret(text) + "<br>");
+    });
+    </script>
+</head>
+<body>
+    <textarea rows="25" cols="50" id="LambCode"></textarea>
+    <input type="submit" id="LambRun"/>
+    <textarea rows="25" cols="50" id="LambResult"></textarea>
+</body>
